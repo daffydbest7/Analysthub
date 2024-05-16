@@ -36,14 +36,14 @@ const Form = () => {
   const subjectOptions = [ 'Mathematics' , 'English Language', 'Biology', 'Chemistry', 'Physics', 'Government','Economics', 'Home Economics', 'Civic Education', 'History', 'Further Mathematics', 'Commerce', 'Geography' , 'Marketing' , 'Financial Accounting'];
   //const schoolOptions = ['School1', 'School2', 'School3', 'School4', 'School5', 'School6', 'School7', 'School8'];
   const gradeOptions = ['A1', 'B2', 'B3', 'C4', 'C5', 'C6', 'D7', 'E8', 'F9'];
-  const seatNoOptions = Array.from(new Array(601), (_, i) => String(i).padStart(3, '0')); // Generate seat numbers from 000 to 600
+  const seatNoOptions = Array.from(new Array(600), (_, i) => (i + 1).toString().padStart(3, '0')); // Updated array for seat numbers
 
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Validate form fields
-    if (!lga || !examYear || !gender || !subject || !grade || !school || !seatNo) {
+    if (!lga || !examYear || !gender || !subject1 || !grade1 || !school || !seatNo) {
       setFormError(true); // Set error if any field is empty
       setTimeout(() => {
         setFormError(false); // Remove error after 3 seconds
@@ -108,6 +108,9 @@ const Form = () => {
         setGrade8('');
         setSchool('');
         setSeatNo('');
+        setTimeout(() => {
+          setSubmitted(false); // Remove submitted message after 5 seconds
+        }, 5000);
         console.log("Success: Form sent");
     })
     .catch((error) => {
@@ -125,7 +128,7 @@ const Form = () => {
         </p>
         <p className="font-sans font-semibold text-center mb-2"> Carefully enter the WAEC details of the candidate</p>
         {formError && <p className="text-red-500 text-center">Please fill in all fields.</p>}
-        {submitted && <p className="text-green-500 text-center ">Success: Form sent</p>}  
+        {submitted && <p className="text-green-500 text-center ">Submission  successful,  proceed with the next candidate </p>}  
         <div className="md:flex md:flex-wrap md:-mx-3 mb-2">
     <div className="w-full md:w-3/4 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="school">
