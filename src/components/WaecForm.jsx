@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import logo from "../assets/analysthub.jpg"
+import logo from "../assets/analysthub.jpg";
+import schoolOptions from './SchoolOptions';
 
 const Form = () => {
   const [lga, setLga] = useState('');
@@ -25,14 +26,15 @@ const Form = () => {
   const [school, setSchool] = useState('');
   const [seatNo, setSeatNo] = useState(''); // New state for seat number
   const [submitted, setSubmitted] = useState(false);
-  const [formError, setFormError] = useState(false); // State to track form errors
+  const [formError, setFormError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);  
  
 
   const genderOptions = ['Male', 'Female', 'Others'];
   const examYearOptions = Array.from(new Array(11), (_, i) => 2013 + i);
   const LGAOptions = ['Yenagoa', 'Sagbama', 'Ogbia', 'Kolokuma/Opokuma', 'Nembe', 'Southern Ijaw', 'Brass', 'Evermore'];
-  const subjectOptions = [ 'Mathematics' , 'English Language', 'Chemistry', 'Physics', 'Government','Economics', 'Home Economics', 'Civic Education', 'History', 'Further Mathematics', 'Commerce', 'Geography' , 'Marketing' , 'Financial Accounting'];
-  const schoolOptions = ['School1', 'School2', 'School3', 'School4', 'School5', 'School6', 'School7', 'School8'];
+  const subjectOptions = [ 'Mathematics' , 'English Language', 'Biology', 'Chemistry', 'Physics', 'Government','Economics', 'Home Economics', 'Civic Education', 'History', 'Further Mathematics', 'Commerce', 'Geography' , 'Marketing' , 'Financial Accounting'];
+  //const schoolOptions = ['School1', 'School2', 'School3', 'School4', 'School5', 'School6', 'School7', 'School8'];
   const gradeOptions = ['A1', 'B2', 'B3', 'C4', 'C5', 'C6', 'D7', 'E8', 'F9'];
   const seatNoOptions = Array.from(new Array(601), (_, i) => String(i).padStart(3, '0')); // Generate seat numbers from 000 to 600
 
@@ -41,11 +43,14 @@ const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Validate form fields
-    if (!lga || !examYear || !gender || !subject1 || !grade1 || !school || !seatNo) {
-        setFormError(true);
-        return;
-      }
-    
+    if (!lga || !examYear || !gender || !subject || !grade || !school || !seatNo) {
+      setFormError(true); // Set error if any field is empty
+      setTimeout(() => {
+        setFormError(false); // Remove error after 3 seconds
+      }, 3000);
+      return;
+    }
+      setSubmitting(true); // Set button text to "submitting..."
     // Form data
     const formData = new FormData();
     formData.append('lga', lga);
@@ -71,7 +76,8 @@ const Form = () => {
     formData.append('seatNo', seatNo);
     
     console.log("Form Data:", Object.fromEntries(formData)); // Log form data
-    
+
+   
     fetch('https://script.google.com/macros/s/AKfycbxM1Bqe0qr74yWfM7sqzozk_GICGilurxLpirYh9TDCJhWOsgfngxRFj_-x9hvDbAHW/exec', {
       method: 'POST',
       body: formData,
@@ -80,6 +86,7 @@ const Form = () => {
      
       .then(() => {
         setSubmitted(true);
+        setSubmitting(false);
         setLga('');
         setExamYear('');
         setGender('');
@@ -106,6 +113,7 @@ const Form = () => {
     .catch((error) => {
       console.error("Error sending form:", error);
       console.log("Error: Form not sent");
+      setSubmitting(false);
     });
 };
 
@@ -129,11 +137,11 @@ const Form = () => {
         className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
       >
         <option value="">Select School</option>
-        {schoolOptions.map((option) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
+        {schoolOptions.map((school) => (
+            <option key={school} value={school}>
+              {school}
+            </option>
+          ))}
       </select>
     </div>
     <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
@@ -499,15 +507,15 @@ const Form = () => {
       <button
         type="submit"
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        disabled={submitted}
+        disabled={submitting || submitted}
       >
         {submitted ? 'Submitting...' : 'Submit'}
       </button>
     </div>
     <div className="md:w-1/4 font-bold text-sm text-white  text-center">
         <div className="flex flex-row items-end justify-evenly">
-        <p>This Form is powered by : </p>
-        <img src={logo} className="w-20  mx-auto rounded-lg" alt="logofor"/>
+        <p>This Form is powered by: </p>
+        <img src={logo} className=" ml-1 w-20  mx-auto rounded-lg" alt="logofor"/>
         </div>
         </div>
      </div>

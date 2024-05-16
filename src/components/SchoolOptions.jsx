@@ -1,9 +1,8 @@
 import React from 'react'
 
-const SchoolData = () => {
-    const school = [
+    const schoolOptions = [
     
-        'COMMUNITY SECONDARY SCHOOL, BELETIEMA', 
+    'COMMUNITY SECONDARY SCHOOL, BELETIEMA', 
     'COMMUNITY SECONDARY SCHOOL, EGWEAMA', 
     'COMMUNITY SECONDARY SCHOOL, FISHTOWN', 
     'COMMUNITY SECONDARY SCHOOL, LIAMA', 
@@ -218,16 +217,7 @@ const SchoolData = () => {
     'GOVERNMENT SECONDARY SCHOOL, OVOM', 
     'GOVERNMENT SECONDARY SCHOOL, YENIZUE-EPIE', 
     'GOVERNMENT SECONDARY SCHOOL, BIOGBOLO', 
-    'GOVERNMENT SECONDARY SCHOOL,IGBOGENE-EPIE'
-                
-                
+    'GOVERNMENT SECONDARY SCHOOL,IGBOGENE-EPIE'             
     ]
-  return (
-    <div>
-   
 
-    </div>
-  )
-}
-
-export default SchoolData
+export default schoolOptions
