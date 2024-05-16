@@ -111,17 +111,17 @@ const Form = () => {
 
   return (
     <div className="w-full  max-h-screen md:fixed">
-    <form onSubmit={handleSubmit} className="bg-gradient-to-br from-blue-400 to-slate-600 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form onSubmit={handleSubmit} className="bg-gradient-to-br from-mainColor to-slate-600 shadow-md rounded px-20 pt-6 pb-8 mb-4">
         <p className="mx-auto text-center mt-2 mb-2 font-bold uppercase font-serif text-2xl md:text-4xl">
             Student Performance Data Entry
         </p>
         <p className="font-sans font-semibold text-center mb-2"> Carefully enter the WAEC details of the candidate</p>
-        {formError && <p className="text-red-500">Please fill in all fields.</p>}
-        {submitted && <p className="text-green-500">Success: Form sent</p>}  
+        {formError && <p className="text-red-500 text-center">Please fill in all fields.</p>}
+        {submitted && <p className="text-green-500 text-center ">Success: Form sent</p>}  
         <div className="md:flex md:flex-wrap md:-mx-3 mb-2">
     <div className="w-full md:w-3/4 px-3 mb-6 md:mb-0">
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="school">
-        School:
+        School Name:
       </label>
       <select
         value={school}
@@ -505,7 +505,7 @@ const Form = () => {
       </button>
     </div>
     <div className="md:w-1/4 font-bold text-sm text-white  text-center">
-        <div className="flex flex-row items-start justify-evenly">
+        <div className="flex flex-row items-end justify-evenly">
         <p>This Form is powered by : </p>
         <img src={logo} className="w-20  mx-auto rounded-lg" alt="logofor"/>
         </div>
