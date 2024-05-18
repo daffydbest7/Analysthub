@@ -1,6 +1,7 @@
 import { Element } from 'react-scroll';
-//import ConfirmForm from "./components/ConfirmForm";
-import Form from "./components/WaecForm";
+//import Form from "./components/WaecForm";
+import Form from './components/Form';
+
 
 
 const App = () => {
