@@ -93,7 +93,7 @@ const Form = () => {
     console.log("Form Data:", Object.fromEntries(formData)); // Log form data
 
    
-    fetch('https://script.google.com/macros/s/AKfycbxM1Bqe0qr74yWfM7sqzozk_GICGilurxLpirYh9TDCJhWOsgfngxRFj_-x9hvDbAHW/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxrjTk-Xz2dZsAOEGfPyDEkh0p1xvi66xdwHKLaO2s8Aif-dTD8out6lfyTDhjC0Rv9/exec', {
       method: 'POST',
       body: formData,
       mode: 'no-cors'
@@ -485,7 +485,7 @@ const Form = () => {
       <select
         value={grade7}
         onChange={(event) => setGrade7(event.target.value)}
-        className="block appearance-none w-full md:w-1/3 bg-mainColor border border-gray-200 text-slate-200 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        className="block appearance-none w-full md:w-1/3 bg-mainColor border border-gray-200 text-slate-200 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-mainColor focus:border-gray-500"
       >
         <option value="">Select Grade</option>
         {gradeOptions.map((option) => (
