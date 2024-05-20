@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import logo from "../assets/analysthub.jpg";
 import schoolData from './SchoolData';
+
 
 const Form = () => {
   const [schoolCode, setSchoolCode] = useState('');
@@ -30,6 +31,8 @@ const Form = () => {
   const [submitted, setSubmitted] = useState(false);
   const [formError, setFormError] = useState(false);
   const [submitting, setSubmitting] = useState(false);  
+
+
  
 
   const genderOptions = ['Male', 'Female', 'Others'];
@@ -97,7 +100,7 @@ const Form = () => {
     console.log("Form Data:", Object.fromEntries(formData)); // Log form data
 
    
-    fetch('https://script.google.com/macros/s/AKfycbxrjTk-Xz2dZsAOEGfPyDEkh0p1xvi66xdwHKLaO2s8Aif-dTD8out6lfyTDhjC0Rv9/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbyQDEP0ZumUidpD9S35yqiUojHJt4V1MowB9DXQlymygPsK4B69bXphGeRybQ9E8TyY/exec', {
       method: 'POST',
       body: formData,
       mode: 'no-cors'
@@ -143,7 +146,7 @@ const Form = () => {
 };
 
   return (
-    <div className="w-full  max-h-screen md:fixed">
+    <div className="w-full  h-screen lg:fixed">
     <form onSubmit={handleSubmit} className="md:pb-20 bg-gradient-to-tl from-mainColor to-slate-600 shadow-md rounded px-8 md:px-20 pt-6 pb-8 mb-4">
         <p className="mx-auto text-slate-200 text-center mt-2 mb-2 font-bold uppercase font-serif text-xl md:text-2xl lg:text-4xl">
             Student Performance Data Entry
@@ -579,7 +582,7 @@ const Form = () => {
   </div>
 </div>
  
-  <div className="lg:mt-4 flex flex-row justify-between -mx-3">
+  <div className="mt-4 flex flex-row justify-between -mx-3">
     <div className="w-full md:w-1/2 px-3">
       <button
         type="submit"
