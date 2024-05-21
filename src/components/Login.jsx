@@ -9,7 +9,7 @@ const Login = () => {
 
 
   const defaultUsername = import.meta.env.VITE_DEFAULT_USERNAME;
-  const defaultPassword = import.meta.env.VITE_DEFAULT_PASSWORD;
+  const defaultPassword = import.meta.env.VITE_DEFAULT_PASWORD;
 
   const handleChange = (e) => {
     setInputs({ ...inputs, [e.target.id]: e.target.value });
