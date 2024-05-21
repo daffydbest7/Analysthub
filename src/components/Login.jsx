@@ -1,28 +1,43 @@
+// Login.jsx
+
 import React, { useState } from "react";
 import "./Login.css";
 import logo from "../assets/analysthub.jpg";
+import toast, {Toaster} from "react-hot-toast";
 
 const Login = () => {
-  const [inputs, setInputs] = useState({
-    username: "",
-    password: "",
-  });
+  const [inputs, setInputs] = useState({ username: "", password: "" });
+
+  const defaultUsername = "admin"; // Replace with your username
+  const defaultPassword = "password"; // Replace with your password
 
   const handleChange = (e) => {
     setInputs({ ...inputs, [e.target.id]: e.target.value });
   };
 
-  console.log(inputs);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputs.username === defaultUsername && inputs.password === defaultPassword) {
+      localStorage.setItem("isLoggedIn", "true");
+      toast.success("Login successful - you'll be redirected in 4 secs");
+      setTimeout(() => {
+        window.location.href = "/form";
+      }, 5000); // Redirect to form after 5 seconds
+    } else {
+      toast.error("Invalid username or password");
+    }
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-tr from-mainColor to-blue-400 hover:bg-gradient-to-bl hover:from-mainColor hover:to-blue-400">
+      <Toaster /> {/* Add Toaster here */}
       <div className="bg-white p-5 sm:p-20 rounded-[10px] w-[90vw] sm:w-[42%]">
         <img
           src={logo}
           alt="logo-pics"
           className="w-24 sm:w-28 mx-auto justify-center"
         />
-        <form className="flex flex-col gap-5">
+        <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
           <div>
             <h2 className="font-bold text-[18px] sm:text-[22px] tracking-wide w-full text-center">
               Login to your account
