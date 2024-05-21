@@ -3,11 +3,14 @@ import { Routes, Route } from "react-router-dom";
 import Login from './components/Login';
 import Form from './components/Form';
 import { isLoggedIn } from './components/auth';
+import useSessionTimeout from './components/useSessionTimeout';
 
 
 
 
 const App = () => {
+
+  useSessionTimeout(); // Use the session timeout hook
   return (
 
     <div className="">
@@ -18,7 +21,7 @@ const App = () => {
         />
         <Route
           path="/login"
-          element={<Login />}
+          element={isLoggedIn() ? <Form /> : <Login />}
         />
         <Route
           path="/form"

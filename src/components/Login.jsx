@@ -1,5 +1,4 @@
 // Login.jsx
-
 import React, { useState } from "react";
 import "./Login.css";
 import logo from "../assets/analysthub.jpg";
@@ -8,8 +7,9 @@ import toast, {Toaster} from "react-hot-toast";
 const Login = () => {
   const [inputs, setInputs] = useState({ username: "", password: "" });
 
-  const defaultUsername = "admin"; // Replace with your username
-  const defaultPassword = "password"; // Replace with your password
+
+  const defaultUsername = import.meta.env.VITE_DEFAULT_USERNAME;
+  const defaultPassword = import.meta.env.VITE_DEFAULT_PASSWORD;
 
   const handleChange = (e) => {
     setInputs({ ...inputs, [e.target.id]: e.target.value });
@@ -19,10 +19,10 @@ const Login = () => {
     e.preventDefault();
     if (inputs.username === defaultUsername && inputs.password === defaultPassword) {
       localStorage.setItem("isLoggedIn", "true");
-      toast.success("Login successful - you'll be redirected in 4 secs");
+      toast.success("Login successful - you'll be redirected in 3 secs");
       setTimeout(() => {
         window.location.href = "/form";
-      }, 5000); // Redirect to form after 5 seconds
+      }, 3000); // Redirect to form after 3 seconds
     } else {
       toast.error("Invalid username or password");
     }
