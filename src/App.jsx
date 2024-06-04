@@ -19,11 +19,11 @@ const App = () => {
      <Routes>
      <Route
           path="/"
-          element={isLoggedIn() ? <Form /> : <Login />}
+          element={isLoggedIn() ? <LandingPage /> : <Login />}
         />
         <Route
           path="/login"
-          element={isLoggedIn() ? <Form /> : <Login />}
+          element={isLoggedIn() ? <LandingPage /> : <Login />}
         />
         <Route
           path="/auth/welcome"
