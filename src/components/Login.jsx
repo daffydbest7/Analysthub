@@ -21,7 +21,7 @@ const Login = () => {
       localStorage.setItem("isLoggedIn", "true");
       toast.success("Login successful - you'll be redirected in 3 secs");
       setTimeout(() => {
-        window.location.href = "/form";
+        window.location.href = "/auth/welcome";
       }, 3000); // Redirect to form after 3 seconds
     } else {
       toast.error("Invalid username or password");
