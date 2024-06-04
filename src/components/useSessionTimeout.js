@@ -9,7 +9,7 @@ const useSessionTimeout = () => {
     const lastActivityTime = localStorage.getItem('lastActivityTime');
     if (lastActivityTime) {
       const elapsed = Date.now() - parseInt(lastActivityTime);
-      const timeoutDuration = 30 * 60 * 1000; // 30 minutes in milliseconds
+      const timeoutDuration = 1 * 60 * 1000; // 30 minutes in milliseconds
       if (elapsed > timeoutDuration) {
         localStorage.clear(); // Reset localStorage
         window.location.href = '/login'; // Redirect to login page
