@@ -9,7 +9,7 @@ const useSessionTimeout = () => {
     const lastActivityTime = localStorage.getItem('lastActivityTime');
     if (lastActivityTime) {
       const elapsed = Date.now() - parseInt(lastActivityTime);
-      const timeoutDuration = 1 * 60 * 1000; // 30 minutes in milliseconds
+      const timeoutDuration = 30 * 60 * 1000; // 30 minutes in milliseconds
       if (elapsed > timeoutDuration) {
         localStorage.clear(); // Reset localStorage
         window.location.href = '/login'; // Redirect to login page
@@ -19,7 +19,7 @@ const useSessionTimeout = () => {
 
   const resetSessionTimeout = () => {
     clearTimeout(window.sessionTimer); // Clear existing timer
-    window.sessionTimer = setTimeout(checkSessionTimeout, 1 * 60 * 1000); // Set new timer for 30 minutes
+    window.sessionTimer = setTimeout(checkSessionTimeout, 30 * 60 * 1000); // Set new timer for 30 minutes
   };
 
   useEffect(() => {

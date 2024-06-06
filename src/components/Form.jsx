@@ -1,10 +1,13 @@
 import React, { useState} from 'react';
 import logo from "../assets/analysthub.jpg";
 import schoolData from './SchoolData';
+import enumeratorData from './EnumeratorData';
 
 
 const Form = () => {
   const [schoolCode, setSchoolCode] = useState('');
+  const [enumeratorCode, setEnumeratorCode] = useState('');
+  const [enumerator, setEnumerator] = useState('');
   const [lga, setLga] = useState('');
   const [examYear, setExamYear] = useState('');
   const [gender, setGender] = useState('');
@@ -38,11 +41,15 @@ const Form = () => {
   const genderOptions = ['Male', 'Female', 'Others'];
   const examYearOptions = Array.from(new Array(11), (_, i) => 2013 + i);
   //const LGAOptions = ['Yenagoa', 'Sagbama', 'Ogbia', 'Kolokuma/Opokuma', 'Nembe', 'Southern Ijaw', 'Brass', 'Evermore'];
-  const subjectOptions = [ 'Mathematics' , 'English Language', 'Biology', 'Chemistry', 'Physics', 'Government','Economics', 'Home Economics', 'Civic Education', 'History', 'Further Mathematics', 'Commerce', 'Geography' , 'Marketing' , 'Financial Accounting'];
+  const subjectOptions = [ 'Mathematics' , 'English Language', 'Biology', 'Chemistry', 'Physics', 'Government','Economics', 'Home Economics', 'Civic Education', 'History', 'Further Mathematics', 'Commerce', 'Geography' , 'Marketing' , 'Financial Accounting', 'Agricultural Science', 'Fishery', 'Lit in English'];
   //const schoolOptions = ['School1', 'School2', 'School3', 'School4', 'School5', 'School6', 'School7', 'School8'];
-  const gradeOptions = ['A1', 'B2', 'B3', 'C4', 'C5', 'C6', 'D7', 'E8', 'F9'];
+  const gradeOptions = ['A1', 'B2', 'B3', 'C4', 'C5', 'C6', 'D7', 'E8', 'F9', 'Withheld (H)', 'Pending (X)', 'Cancel (*)'];
   const seatNoOptions = Array.from(new Array(600), (_, i) => (i + 1).toString().padStart(3, '0')); // Updated array for seat numbers
   const schoolCodeOptions = Array.from(new Array(216), (_, i) => (i + 1).toString().padStart(3, '0')); // Updated array for seat numbers
+  const enumeratorCodeOptions = Array.from(new Array(23), (_, i) => 'EN' + (i + 1).toString().padStart(2, '0'));
+
+
+
 
  //schoolcode handler
  const handleSchoolCodeChange = (event) => {
@@ -58,12 +65,24 @@ const Form = () => {
     }
   };
  
+   //enumerator handler
+ const handleEnumeratorCodeChange = (event) => {
+  const code = event.target.value;
+  setEnumeratorCode(code);
+
+  if (enumeratorData[code]) {
+    setEnumerator(enumeratorData[code].name);
+  } else {
+    setEnumerator(''); 
+  }
+};
+
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Validate form fields
-    if (!schoolCode || !lga || !examYear || !gender || !subject1 || !grade1 || !subject2 || !grade2 || !subject3 || !grade3 || !subject4 || !grade4 || !subject5 || !grade5 || !subject6 || !grade6 || !subject7 || !grade7 || !subject8 || !grade8 || !school || !seatNo) {
+    if (!enumerator || !schoolCode || !lga || !examYear || !gender || !subject1 || !grade1 || !subject2 || !grade2 || !subject3 || !grade3 || !subject4 || !grade4 || !subject5 || !grade5 || !subject6 || !grade6 || !subject7 || !grade7 || !school || !seatNo) {
       setFormError(true); // Set error if any field is empty
       setTimeout(() => {
         setFormError(false); // Remove error after 3 seconds
@@ -96,11 +115,12 @@ const Form = () => {
     formData.append('grade9', grade9);
     formData.append('school', school);
     formData.append('seatNo', seatNo);
+    formData.append('enumerator', enumerator);
     
     console.log("Form Data:", Object.fromEntries(formData)); // Log form data
 
    
-    fetch('https://script.google.com/macros/s/AKfycbyQDEP0ZumUidpD9S35yqiUojHJt4V1MowB9DXQlymygPsK4B69bXphGeRybQ9E8TyY/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxUtuwHBRqA6nXLS2S6YIrDYCADo5kAlLGyyP2vfRZf-BLgHTESjuulHNT0gwLbYBsU/exec', {
       method: 'POST',
       body: formData,
       mode: 'no-cors'
@@ -110,6 +130,7 @@ const Form = () => {
         setSubmitted(true);
         setSubmitting(false);
         setSchoolCode('');
+        setEnumeratorCode('');
         setLga('');
         setExamYear('');
         setGender('');
@@ -133,6 +154,7 @@ const Form = () => {
         setGrade9('');
         setSchool('');
         setSeatNo('');
+        setEnumerator('');
         setTimeout(() => {
           setSubmitted(false); // Remove submitted message after 5 seconds
         }, 5000);
@@ -156,20 +178,20 @@ const Form = () => {
         {submitted && <p className="text-green-500 text-center ">Submission  successful,  proceed with the next candidate </p>}  
         <div className="flex flex-wrap md:flex md:flex-wrap md:-mx-3 mb-4">
      {/* School Code */}
-     <div className="w-2/3 md:w-2/6 px-3 mb-6 md:mb-0 justify-center">
+     <div className="w-2/3 md:w-1/6 px-3 mb-6 md:mb-0 justify-center">
           <label className="block uppercase tracking-wide text-slate-200 text-xs font-bold mb-2" htmlFor="schoolCode">
             School Code:
           </label>
           <div className='flex flex-row items-center space-x-1'>
-          <span className='text-slate-200'>BY/PUBL/WAEC/ </span>
+          <span className='text-slate-200 text-sm'>BY/PUBL/WAEC/</span>
           
           <select
             type="text"
             value={schoolCode}
             onChange={handleSchoolCodeChange}
-            className="block appearance-none w-2/3 bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             >
-        <option value="">Code</option>
+        <option value="">#</option>
         {schoolCodeOptions.map((option) => (
           <option key={option} value={option}>
             {option}
@@ -180,7 +202,7 @@ const Form = () => {
         
     </div>
         {/* School Name */}
-        <div className="w-full md:w-4/6 px-3 mb-6 md:mb-0">
+        <div className="w-full md:w-3/6 px-3 mb-6 md:mb-0">
           <label className="block uppercase tracking-wide text-slate-200 text-xs font-bold mb-2" htmlFor="schoolName">
             School Name:
           </label>
@@ -191,7 +213,37 @@ const Form = () => {
             className=" block w-full bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           />
         </div>
-       
+        <div className="w-2/3 md:w-1/6 px-3 mb-6 md:mb-0 justify-center">
+          <label className="block uppercase tracking-wide text-slate-200 text-xs font-bold mb-2" htmlFor="schoolCode">
+            Enumerator Code:
+          </label>
+          <div className='items-center space-x-1'>
+          <select
+            type="text"
+            value={enumeratorCode}
+            onChange={handleEnumeratorCodeChange}
+            className="block appearance-none w-2/3 bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            >
+        <option value="">EN</option>
+        {enumeratorCodeOptions.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+          </div> 
+    </div>
+    <div className="w-1/2 md:w-1/6 px-3 mb-6 md:mb-0">
+          <label className="block uppercase tracking-wide text-slate-200 text-xs font-bold mb-2" htmlFor="enum">
+            Name:
+          </label>
+          <input
+            type="text"
+            value={enumerator}
+            readOnly
+            className="block w-full bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          />
+        </div>
       </div>
       <div className="flex flex-wrap md:flex md:flex-wrap md:-mx-3 md:mb-12">
      {/* LGA */}

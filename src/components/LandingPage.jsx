@@ -20,12 +20,12 @@ const LandingPage = () => {
         <div className="mt-4 md:mt-8 lg:mt-8 mx-auto flex flex-row space-x-8  justify-center">
           <div>
             <Link to="/auth/waec_capture">
-              <button className="px-4 py-2 rounded-lg bg-gradient-to-br from-yellow-400 to-blue-500  text-neutral-800 font-sans font-bold"> WAEC </button>
+              <button className="px-4 py-2 rounded-lg bg-mainColor hover:bg-blue-600 text-white font-sans font-bold"> WAEC </button>
             </Link>
           </div>
           <div>
-           <Link to="/auth/neco_capture">
-              <button className="px-4 py-2 rounded-lg bg-gradient-to-br from-yellow-400 to-green-500 text-neutral-800  font-sans font-bold"> NECO </button>
+           <Link to="">
+              <button className="px-4 py-2 rounded-lg  bg-mainColor hover:bg-blue-600 text-white  font-sans font-bold"> NECO </button>
             </Link>
           </div>
         </div>
