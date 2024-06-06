@@ -18,7 +18,7 @@ const enumeratorData = {
     'EN17': {name:'Ojike Nneoma Sandra'},
     'EN18': {name:'Emmanuel Isaac'},
     'EN19': {name:'David Briggs'},
-    'EN20': {name:'James Grant'},
+    'EN20': {name:'Deric Emmanuel Otonbara'},
     'EN21': {name:'Samson Ebilakpo'},
     'EN22': {name:'Newman Freedom'},
     'EN23': {name:'Greatness Kolowei'}
