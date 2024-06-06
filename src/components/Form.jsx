@@ -41,7 +41,7 @@ const Form = () => {
   const genderOptions = ['Male', 'Female', 'Others'];
   const examYearOptions = Array.from(new Array(11), (_, i) => 2013 + i);
   //const LGAOptions = ['Yenagoa', 'Sagbama', 'Ogbia', 'Kolokuma/Opokuma', 'Nembe', 'Southern Ijaw', 'Brass', 'Evermore'];
-  const subjectOptions = [ 'Mathematics' , 'English Language', 'Biology', 'Chemistry', 'Physics', 'Government','Economics', 'Home Economics', 'Civic Education', 'History', 'Further Mathematics', 'Commerce', 'Geography' , 'Marketing' , 'Financial Accounting', 'Agricultural Science', 'Fishery', 'Lit in English'];
+  const subjectOptions = [ 'Mathematics' , 'English Language', 'Biology', 'Chemistry', 'Physics', 'Government','Economics', 'Home Economics', 'Civic Education', 'History', 'Further Mathematics', 'Commerce', 'Geography' , 'Marketing' , 'Financial Accounting', 'Agricultural Science', 'Fishery', 'Lit in English', 'Computer', 'CRS', 'Book Keeping', 'Electro', 'Animal Husbandry', 'Mining', 'Data Processing'];
   //const schoolOptions = ['School1', 'School2', 'School3', 'School4', 'School5', 'School6', 'School7', 'School8'];
   const gradeOptions = ['A1', 'B2', 'B3', 'C4', 'C5', 'C6', 'D7', 'E8', 'F9', 'Withheld (H)', 'Pending (X)', 'Cancel (*)'];
   const seatNoOptions = Array.from(new Array(600), (_, i) => (i + 1).toString().padStart(3, '0')); // Updated array for seat numbers
