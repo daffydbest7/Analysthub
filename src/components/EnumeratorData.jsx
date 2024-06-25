@@ -22,7 +22,9 @@ const enumeratorData = {
     'EN21': {name:'Samson Ebilakpo'},
     'EN22': {name:'Newman Freedom'},
     'EN23': {name:'Greatness Kolowei'},
-    'EN24': {name:'Dollar Gabrielle'}
+    'EN24': {name:'Dollar Gabrielle'},
+    'EN25': {name:'Rufus Princewill'},
+    'EN26': {name:'Deinghan Theophilus'},
 }
 
 export default enumeratorData;
