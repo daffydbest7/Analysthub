@@ -48,7 +48,7 @@ const Form = () => {
   const gradeOptions = ['A1', 'B2', 'B3', 'C4', 'C5', 'C6', 'D7', 'E8', 'F9', 'Withheld (H)', 'Pending (X)', 'Cancel (*)'];
   const seatNoOptions = Array.from(new Array(600), (_, i) => (i + 1).toString().padStart(3, '0')); // Updated array for seat numbers
   const schoolCodeOptions = Array.from(new Array(216), (_, i) => (i + 1).toString().padStart(3, '0')); // Updated array for seat numbers
-  const enumeratorCodeOptions = Array.from(new Array(27), (_, i) => 'EN' + (i + 1).toString().padStart(2, '0'));
+  const enumeratorCodeOptions = Array.from(new Array(28), (_, i) => 'EN' + (i + 1).toString().padStart(2, '0'));
 
 
 
