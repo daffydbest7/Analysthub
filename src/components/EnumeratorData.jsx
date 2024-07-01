@@ -27,6 +27,7 @@ const enumeratorData = {
     'EN26': {name:'Deinghan Theophilus'},
     'EN27': {name:'Kontei James Agiari'},
     'EN28': {name:'Eki Blessing'},
+    'EN29': {name:'Duate Renner'},
 }
 
 export default enumeratorData;
