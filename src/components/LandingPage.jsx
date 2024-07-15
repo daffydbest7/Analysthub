@@ -24,7 +24,7 @@ const LandingPage = () => {
             </Link>
           </div>
           <div>
-           <Link to="">
+           <Link to="/auth/neco_capture">
               <button className="px-4 py-2 rounded-lg  bg-mainColor hover:bg-blue-600 text-white  font-sans font-bold"> NECO </button>
             </Link>
           </div>
