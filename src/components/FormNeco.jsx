@@ -45,11 +45,11 @@ const Form = () => {
   ,' Health Education', 'Physical Education', 'Food and Nutrition', 'French', ' Home Management', 'Music', 'Technical Drawing', 'Virtual Art', 'Health Science' , 'Subject not listed'
   ];
   //const schoolOptions = ['School1', 'School2', 'School3', 'School4', 'School5', 'School6', 'School7', 'School8'];
-  const gradeOptions = ['A1', 'B2', 'B3', 'C4', 'C5', 'C6', 'D7', 'E8', 'F9', 'Withheld (H)', 'Pending (X)', 'Cancel (*)'];
+  const gradeOptions = ['A1', 'B2', 'B3', 'C4', 'C5', 'C6', 'D7', 'E8', 'F9', 'Pending (*)', 'Cancel (X)', 'Absent (**)', 'NR (No Result)'];
   const seatNoOptions = Array.from(new Array(600), (_, i) => (i + 1).toString().padStart(3, '0')); // Updated array for seat numbers
   const schoolCodeOptions = Array.from(new Array(216), (_, i) => (i + 1).toString().padStart(3, '0')); // Updated array for seat numbers
   //const enumeratorCodeOptions = Array.from(new Array(32), (_, i) => 'EN' + (i + 1).toString().padStart(2, '0'));
-  const enumeratorCodeOptions = Array.from(new Array(32), (_, i) => {
+  const enumeratorCodeOptions = Array.from(new Array(33), (_, i) => {
     const num = i + 1;
     if (![1, 2, 3, 11, 15, 20, 25].includes(num)) {
     return 'EN' + num.toString().padStart(2, '0');
