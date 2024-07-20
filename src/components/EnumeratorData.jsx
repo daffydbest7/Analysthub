@@ -34,6 +34,7 @@ const enumeratorData = {
     'EN33': {name: 'Ifeanyi Onwubu'},
     'EN34': {name: 'Agiari Nanabotonghen James'},
     'EN35': {name: 'Tariere Alfred'},
+    'EN36': {name: 'Laye Abali'},
 }
 
 export default enumeratorData;
