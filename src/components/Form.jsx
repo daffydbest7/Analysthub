@@ -180,9 +180,10 @@ const Form = () => {
         <p className="mx-auto text-slate-200 text-center mt-2 mb-2 font-bold uppercase font-serif text-xl md:text-2xl lg:text-4xl">
             Student Performance Data Entry
         </p>
-        
-        { formError ? <p className="text-red-500 text-center">Please fill in all fields.</p> : <p className="font-sans font-semibold text-center mb-4 text-slate-200"> Carefully enter the WAEC details of the candidate</p>}
-        {submitted && <p className="text-green-500 text-center ">Submission  successful,  proceed with the next candidate </p>}  
+
+        {submitted ? <p className="text-green-500 text-center ">Submission  successful,  proceed with the next candidate </p> : <p className="font-sans font-semibold text-center mb-4 text-slate-200"> Carefully enter the WAEC details of the candidate</p>}  
+        { formError && <p className="text-red-500 text-center">Please fill in all fields.</p> }
+       
         <div className="flex flex-wrap md:flex md:flex-wrap md:-mx-3 mb-4">
      {/* School Code */}
      <div className="w-2/3 md:w-1/6 px-3 mb-6 md:mb-0 justify-center">
