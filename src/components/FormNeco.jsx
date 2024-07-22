@@ -51,7 +51,7 @@ const Form = () => {
   //const enumeratorCodeOptions = Array.from(new Array(32), (_, i) => 'EN' + (i + 1).toString().padStart(2, '0'));
   const enumeratorCodeOptions = Array.from(new Array(36), (_, i) => {
     const num = i + 1;
-    if (![1, 2, 3, 11, 15, 20, 25].includes(num)) {
+    if (![1, 2, 3, 11, 20, 25].includes(num)) {
     return 'EN' + num.toString().padStart(2, '0');
     }
     });
