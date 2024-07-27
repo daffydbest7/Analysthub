@@ -5,12 +5,29 @@ import enumeratorData from './EnumeratorData';
 
 
 const Form = () => {
+  
   const [schoolCode, setSchoolCode] = useState('');
   const [enumeratorCode, setEnumeratorCode] = useState('');
   const [enumerator, setEnumerator] = useState('');
   const [lga, setLga] = useState('');
   const [examYear, setExamYear] = useState('');
   const [gender, setGender] = useState('');
+  const [school, setSchool] = useState('');
+
+  {
+    /**
+  // my default configuration -- kindly remove before pushing to production
+  const [schoolCode, setSchoolCode] = useState('185');
+  const [enumeratorCode, setEnumeratorCode] = useState('EN37');
+  const [enumerator, setEnumerator] = useState(enumeratorData['EN37'] ? enumeratorData['EN37'].name : '');
+  const [lga, setLga] = useState(schoolData['185'] ? schoolData['185'].lga : '');
+  const [examYear, setExamYear] = useState('2016');
+  const [gender, setGender] = useState('Others');
+  const [school, setSchool] = useState(schoolData['185'] ? schoolData['185'].name : '');
+     */
+}
+  
+
   const [subject1, setSubject1] = useState('');
   const [grade1, setGrade1] = useState('');
   const [subject2, setSubject2] = useState('');
@@ -29,7 +46,6 @@ const Form = () => {
   const [grade8, setGrade8] = useState('');
   const [subject9, setSubject9] = useState('');
   const [grade9, setGrade9] = useState('');
-  const [school, setSchool] = useState('');
   const [seatNo, setSeatNo] = useState(''); // New state for seat number
   const [submitted, setSubmitted] = useState(false);
   const [formError, setFormError] = useState(false);
@@ -191,7 +207,7 @@ const Form = () => {
             School Code:
           </label>
           <div className='flex flex-row items-center space-x-1'>
-          <span className='text-slate-200 text-sm'>BY/PUBL/WAEC/</span>
+          <span className='text-slate-200 text-sm'>BY/PUBL/NECO/</span>
           
           <select
             type="text"
