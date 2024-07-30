@@ -13,20 +13,20 @@ const Form = () => {
   const [examYear, setExamYear] = useState('');
   const [gender, setGender] = useState('');
   const [school, setSchool] = useState('');
-
+  
   {
     /**
   // my default configuration -- kindly remove before pushing to production
-  const [schoolCode, setSchoolCode] = useState('185');
+  const [schoolCode, setSchoolCode] = useState('177');
   const [enumeratorCode, setEnumeratorCode] = useState('EN37');
   const [enumerator, setEnumerator] = useState(enumeratorData['EN37'] ? enumeratorData['EN37'].name : '');
-  const [lga, setLga] = useState(schoolData['185'] ? schoolData['185'].lga : '');
-  const [examYear, setExamYear] = useState('2016');
+  const [lga, setLga] = useState(schoolData['177'] ? schoolData['177'].lga : '');
+  const [examYear, setExamYear] = useState('2018');
   const [gender, setGender] = useState('Others');
-  const [school, setSchool] = useState(schoolData['185'] ? schoolData['185'].name : '');
+  const [school, setSchool] = useState(schoolData['177'] ? schoolData['177'].name : '');
+
      */
 }
-  
 
   const [subject1, setSubject1] = useState('');
   const [grade1, setGrade1] = useState('');

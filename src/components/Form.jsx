@@ -49,7 +49,7 @@ const Form = () => {
   const seatNoOptions = Array.from(new Array(600), (_, i) => (i + 1).toString().padStart(3, '0')); // Updated array for seat numbers
   const schoolCodeOptions = Array.from(new Array(216), (_, i) => (i + 1).toString().padStart(3, '0')); // Updated array for seat numbers
   //const enumeratorCodeOptions = Array.from(new Array(32), (_, i) => 'EN' + (i + 1).toString().padStart(2, '0'));
-  const enumeratorCodeOptions = Array.from(new Array(33), (_, i) => {
+  const enumeratorCodeOptions = Array.from(new Array(34), (_, i) => {
     const num = i + 1;
     if (![1, 2, 3, 11, 15, 20, 25].includes(num)) {
     return 'EN' + num.toString().padStart(2, '0');
