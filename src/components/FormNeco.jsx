@@ -5,7 +5,7 @@ import enumeratorData from './EnumeratorData';
 
 
 const Form = () => {
-  
+
   const [schoolCode, setSchoolCode] = useState('');
   const [enumeratorCode, setEnumeratorCode] = useState('');
   const [enumerator, setEnumerator] = useState('');
@@ -17,13 +17,13 @@ const Form = () => {
   {
     /**
   // my default configuration -- kindly remove before pushing to production
-  const [schoolCode, setSchoolCode] = useState('177');
-  const [enumeratorCode, setEnumeratorCode] = useState('EN37');
-  const [enumerator, setEnumerator] = useState(enumeratorData['EN37'] ? enumeratorData['EN37'].name : '');
-  const [lga, setLga] = useState(schoolData['177'] ? schoolData['177'].lga : '');
-  const [examYear, setExamYear] = useState('2018');
+  const [schoolCode, setSchoolCode] = useState('026');
+  const [enumeratorCode, setEnumeratorCode] = useState('EN33');
+  const [enumerator, setEnumerator] = useState(enumeratorData['EN33'] ? enumeratorData['EN33'].name : '');
+  const [lga, setLga] = useState(schoolData['026'] ? schoolData['026'].lga : '');
+  const [examYear, setExamYear] = useState('2014');
   const [gender, setGender] = useState('Others');
-  const [school, setSchool] = useState(schoolData['177'] ? schoolData['177'].name : '');
+  const [school, setSchool] = useState(schoolData['026'] ? schoolData['026'].name : '');
 
      */
 }
@@ -67,7 +67,7 @@ const Form = () => {
   //const enumeratorCodeOptions = Array.from(new Array(32), (_, i) => 'EN' + (i + 1).toString().padStart(2, '0'));
   const enumeratorCodeOptions = Array.from(new Array(37), (_, i) => {
     const num = i + 1;
-    if (![1, 2, 3, 11, 20, 25].includes(num)) {
+    if (![1, 2, 3, 11, 20, 25, 6,8,10,11,12,13,14,16,17,20,21,22,23,24,25,28,29,30,32,35,36,37].includes(num)) {
     return 'EN' + num.toString().padStart(2, '0');
     }
     });
