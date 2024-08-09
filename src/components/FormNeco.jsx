@@ -104,7 +104,10 @@ const Form = () => {
 
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    window.alert("Hi There! We have come to the end of data collection exercise... Thanks for your participation.")
+    {/**
+      
+       event.preventDefault();
     // Validate form fields
     if (!enumerator || !schoolCode || !lga || !examYear || !gender || !subject1 || !grade1 || !subject2 || !grade2 || !subject3 || !grade3 || !subject4 || !grade4 || !subject5 || !grade5 || !subject6 || !grade6 || !subject7 || !grade7 || !school || !seatNo) {
       setFormError(true); // Set error if any field is empty
@@ -189,6 +192,9 @@ const Form = () => {
       console.log("Error: Form not sent");
       setSubmitting(false);
     });
+      
+      */}
+   
 };
 
   return (
@@ -662,8 +668,10 @@ const Form = () => {
     <div className="w-full md:w-1/2 px-3">
       <button
         type="submit"
-        className={`${submitted ? "bg-green-500" : "bg-blue-500 hover:bg-blue-700"}  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
-        disabled={submitting || submitted}
+        className={`${submitted ? "bg-green-500" : "bg-blue-500 hover:bg-blue-700"}  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer`}
+        //disabled={submitting || submitted}
+       
+        
       >
         {submitted ? 'Success' : 'Submit'}
       </button>
